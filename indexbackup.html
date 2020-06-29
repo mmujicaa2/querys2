@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Querys Backdoor SIAGJ</title>
+<style type="text/css">
+body {
+	background-color: #CF9;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.verdana10 {
+	font-size: 14px;
+}
+.verdana10 {
+	font-size: 10px;
+}
+.verdana11 strong {
+	font-size: 12px;
+}
+.verdana12 strong {
+	font-size: 12px;
+}
+.verdana10 .verdana12 {
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<p class="verdana10"><strong>Querys
+SIAGJ</strong></p>
+<table width="957" height="60" border="1">
+  <tr>
+    <td width="888" class="verdana10"><strong class="verdana12">Causas por participante (Todos los TG y TOP...demora dependiendo de los par&aacute;metros)</strong></td>
+  </tr>
+  <tr>
+    <td class="verdana10"><form id="formimputado" name="formimputado" method="post" action="impdelito.php">
+      <span class="verdana10">
+      
+      Nombre:
+      <input type="text" name="nombreimp" id="nombreimp" />
+      A.Paterno:
+      <input type="text" name="apaternoimp" id="apaternoimp" />
+      A.Materno:
+      <input type="text" name="amaternoimp" id="amaternoimp" />
+ Tipo:
+    <select name="tipo" id="tipo">
+      <option value="2">Imputado</option>
+      <option value="5">Victima</option>
+      <option value="7">Fiscal</option>
+      <option value="8">Defensor</option>
+      <option value="12">Testigo</option>
+      <option value="14">Perito</option>
+    </select>
+    <input type="submit" name="Enviar2" id="Enviar2" value="Submit" />
+      </span>
+    </form></td>
+  </tr>
+</table>
+<table width="957" height="57" border="1">
+  <tr>
+    <td width="848" class="verdana10"><strong class="verdana11"><span class="verdana12"><span class="verdana12"><span class="verdana12">Ordena Archivo entre fechas (dd-mm-aaaa)</span></span></span></strong></td>
+  </tr>
+  <tr>
+    <td class="verdana10"><form id="formoarchivo" name="formoarchivo" method="post" action="oarchivo.php">
+      <span class="verdana10">
+      
+      Inicio:
+          <input type="text" name="finicio" id="finicio" />
+          Fin:
+          <input type="text" name="ffin" id="ffin" />
+      <input type="submit" name="Enviar3" id="Enviar3" value="Submit" />
+      </span>
+    </form></td>
+  </tr>
+</table>
+<table width="957" height="57" border="1">
+  <tr>
+    <td width="848" class="verdana10"><strong class="verdana11"><span class="verdana12">Solicitud sin doc ni word ni pdf (dd-mm-aaaa)</span></strong></td>
+  </tr>
+  <tr>
+    <td class="verdana10"><form id="formssdoc" name="formssdoc" method="post" action="ssindoc.php">
+      <span class="verdana10">
+      
+      Inicio:
+      <input type="text" name="finiciossdoc" id="finiciossdoc" />
+      Fin:
+      <input type="text" name="ffinssdoc" id="ffinssdoc" />
+      <input type="submit" name="Enviar4" id="Enviar4" value="Submit" />
+      </span>
+    </form></td>
+  </tr>
+</table>
+<table width="957" height="57" border="1">
+  <tr>
+    <td width="848" class="verdana10"><strong class="verdana11"><span class="verdana12">Resoluciones sin doc  (dd-mm-aaaa)</span></strong></td>
+  </tr>
+  <tr>
+    <td class="verdana10"><form id="formrsdoc" name="formrsdoc" method="post" action="rsindoc.php">
+      <span class="verdana10">
+      
+      Inicio:
+      <input type="text" name="finiciorsdoc" id="finiciorsdoc" />
+      Fin:
+      <input type="text" name="ffinrsdoc" id="ffinrsdoc" />
+      <input type="submit" name="Enviar" id="Enviar" value="Submit" />
+      </span>
+    </form></td>
+  </tr>
+</table>
+<table width="957" height="57" border="1">
+  <tr>
+    <td width="848" class="verdana10"><strong class="verdana11"><span class="verdana12">Ingreso entre fechas(dd-mm-aaaa) x delito(glosa delito...ej. dro o Drog o DROGAS)</span></strong></td>
+  </tr>
+  <tr>
+    <td class="verdana10"><form id="formsent" name="formsent" method="post" action="sentxfecha.php">
+      <span class="verdana10">
+      
+      Inicio:
+      <input type="text" name="finiciosent" id="finiciosent" />
+      Fin:
+      <input type="text" name="ffinsent" id="ffinsent" />
+      Delito:
+      <input type="text" name="glosasent" id="glosasent" />
+      <input type="submit" name="Enviar5" id="Enviar5" value="Submit" />
+      </span>
+    </form></td>
+  </tr>
+</table>
+<table width="957" height="57" border="1">
+  <tr>
+    <td width="848" class="verdana10"><strong class="verdana11"><span class="verdana12">Estado de Eventos entre fechas(dd-mm-aaaa) [Resoluciones, Actuaciones,Audiencias, Solicitudes]</span></strong></td>
+  </tr>
+  <tr>
+    <td class="verdana10"><form id="formres" name="formres" method="post" action="estadoeventos.php">
+      Inicio:
+      <input type="text" name="finicioev" id="finicioev" />
+      Fin:
+      <input type="text" name="ffinev" id="ffinev" />
+      Tipo:
+      <select name="tipoev" id="tipoev">
+        <option value="2">Resoluci&oacute;n</option>
+        <option value="1">Audiencia</option>
+        <option value="3">Solicitud</option>
+        <option value="7">Actuaci&oacute;n</option>
+        <option value="1,2,3,7">TODOS</option>
+      </select>
+<input type="submit" name="Enviar6" id="Enviar6" value="Submit" />
+    </form></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
