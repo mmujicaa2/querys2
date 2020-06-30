@@ -41,6 +41,7 @@
 </div>
 
 <div class="container-fluid text-center">
+  
 <?php
 header('Content-Type: text/html; charset=utf-8');
 $conn = oci_connect('tg_penaltg', 'tg20170523', 'rpenprod','AL32UTF8');

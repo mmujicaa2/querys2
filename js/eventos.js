@@ -10,18 +10,30 @@ cargaministros();
 
 $('#datepicker').datepicker({
  	language: 'es',
+  todayBtn: 'linked',
  	format: 'dd-mm-yyyy',
  	todayHighlight: true,
     autoclose: true
-     });
+     }).datepicker('setDate', 'now');
 
 $("#datepicker2").datepicker({
     language: 'es',
+  todayBtn: 'linked',
   format: 'dd-mm-yyyy',
   todayHighlight: true,
     autoclose: true
-     });
+     }).datepicker('setDate', 'now');
+
+$("#datepicker3").datepicker({
+  language: 'es',
+  todayBtn: 'linked',
+  format: 'dd-mm-yyyy',
+  todayHighlight: true,
+    autoclose: true
+     }).datepicker('setDate', '01-01-2000');
+
 });
+
 
 
 $("#edatepicker2").datepicker({

@@ -26,16 +26,22 @@ if (!$conn) {
 	echo "error en conexion";
 }
 
+$finicioev=trim(strtoupper($_GET['finicioev']));
+$ffinev=trim(strtoupper($_GET['ffinev']));
+$ctrib=trim(strtoupper($_GET['ctrib']));
+
+$orden="TATP_PERSONA.IDF_NOMBRES ASC";
 $querypass= "SELECT DISTINCT RIT.IDF_ROLUNICO, 
        RIT.IDF_ROLINTERNO, 
-       RIT.FEC_ERA,
-	   TGES_ORDENROL.IDF_ROLUNICOORDEN, 
+       RIT.FEC_ERA, 
+       TGES_ORDENROL.IDF_ROLUNICOORDEN, 
        TATP_PERSONA.IDF_NOMBRES, 
        TATP_PERSONA.IDF_PATERNO, 
        TATP_PERSONA.IDF_MATERNO, 
        TATP_PERSONA.NUM_DOCID, 
        TGES_ORDENROL.FEC_SISTEMA,
-	   TGES_ORDEN.FLG_VIGENCIA
+     TGES_ORDEN.FLG_VIGENCIA,
+       TGES_ORDEN.GLS_OBSERVACION 
   FROM (((JUDPENAL.TGES_ORDEN TGES_ORDEN 
        INNER JOIN JUDPENAL.TATP_PARTICIPANTE TATP_PARTICIPANTE 
           ON (TGES_ORDEN.CRR_PARTICIPANTE = TATP_PARTICIPANTE.CRR_IDPARTICIPANTE)) 
@@ -45,9 +51,10 @@ $querypass= "SELECT DISTINCT RIT.IDF_ROLUNICO,
           ON (TATP_PERSONA.CRR_LITIGANTE_ID = TATP_PARTICIPANTE.CRR_PERSONA)) 
        INNER JOIN JUDPENAL.TATP_CAUSA RIT 
           ON (RIT.CRR_IDCAUSA = TATP_PARTICIPANTE.CRR_CAUSA) 
- WHERE (RIT.COD_TRIBUNAL = 953) 
-    AND (TGES_ORDEN.TIP_ORDEN = 2) ";
-
+ WHERE (RIT.COD_TRIBUNAL = $ctrib) 
+    AND (TGES_ORDEN.TIP_ORDEN = 2) 
+    AND TGES_ORDEN.FEC_ORDEN BETWEEN '$finicioev' AND '$ffinev'
+ORDER BY $orden ,TGES_ORDEN.FLG_VIGENCIA desc ";
 
 
 $stid = oci_parse($conn,$querypass);
@@ -68,7 +75,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 ->setCellValue('A1', 'RUC')
 ->setCellValue('B1', 'RIT')
 ->setCellValue('C1', utf8_encode('AÑO'))
-->setCellValue('D1', 'N.C.ORDEN')
+->setCellValue('D1', 'N.ORDEN')
 ->setCellValue('E1', 'NOMBRE')
 ->setCellValue('F1', 'A.PATERNO')
 ->setCellValue('G1', 'A.MATERNO')
@@ -76,15 +83,7 @@ $objPHPExcel->setActiveSheetIndex(0)
 ->setCellValue('I1', 'FECHA')
 ->setCellValue('J1', 'VIGENCIA')
 ;
-
-$objPHPExcel->setActiveSheetIndex(0)
-->getStyle('I')->getNumberFormat()
-->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_DATE_YYYYMMDD2);
-
-
-//$objPHPExcel->setActiveSheetIndex(0)->getStyle('I')->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_DATE_DATETIME);  
-
-   
+//$objPHPExcel->setActiveSheetIndex(0)->getStyle('D1')->getNumberFormat();
 
 $fila=2;
 $col=0;
